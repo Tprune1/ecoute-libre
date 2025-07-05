@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ÉCOUTE LIBRE – Chat IA</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    #chat-box {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .message {
+      max-width: 80%;
+      margin: 8px 0;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .user {
+      background-color: #6d5ba6;
+      color: white;
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .ai {
+      background-color: #eaeaea;
+      color: #333;
+      text-align: left;
+      margin-right: auto;
+    }
+
+    #input-area {
+      display: flex;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #6d5ba6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5b4b99;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>💬 ÉCOUTE LIBRE – Chat IA</h1>
+  <p><em>Ici, tu peux poser tes questions et recevoir des réponses bienveillantes.</em></p>
+
+  <div id="chat-box"></div>
+
+  <div id="input-area">
+    <input type="text" id="question" placeholder="Écris ta question ici..." />
+    <button onclick="envoyer()">Envoyer</button>
+  </div>
+
+  <br>
+  <button onclick="window.location.href='index-lang.html'">Changer de langue</button>
+
+  <script>
+    async function envoyer() {
+      const input = document.getElementById("question");
+      const chatBox = document.getElementById("chat-box");
+      const message = input.value.trim();
+
+      if (!message) return;
+
+      chatBox.innerHTML += `<div class="message user">${message}</div>`;
+      input.value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      try {
+        const response = await fetch("https://hook.eu2.make.com/ydec4v98cdagicj5nok4c2nl48mj5xr1", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: message })
+        });
+
+        const data = await response.json();
+        const reponseIA = data.result || "Je suis là pour toi 💜";
+
+        chatBox.innerHTML += `<div class="message ai">${reponseIA}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      } catch (error) {
+        chatBox.innerHTML += `<div class="message ai">Désolé, une erreur est survenue. Essaie encore 💬</div>`;
+      }
+    }
+  </script>
+</body>
+</html>

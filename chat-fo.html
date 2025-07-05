@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fon">
+<head>
+  <meta charset="UTF-8" />
+  <title>ÉCOUTE LIBRE – Fon Chat</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    async function yí() {
+      const input = document.getElementById("question");
+      const chatBox = document.getElementById("chat-box");
+      const message = input.value.trim();
+      if (!message) return;
+
+      chatBox.innerHTML += `<div class="message user">${message}</div>`;
+      input.value = "";
+
+      setTimeout(() => {
+        chatBox.innerHTML += `<div class="message ai">Agbɛ wɛ. Mɛ gbɔ nɔ wɛ xɔ nu 💜</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 800);
+    }
+  </script>
+</head>
+<body>
+  <h1>💬 ÉCOUTE LIBRE – Fon ƒo</h1>
+  <p><em>Wɛ nɔ gbɔ nɔ wɛ yí, à mɛ xɔ nu ɖɔ.</em></p>
+  <div id="chat-box"></div>
+  <input type="text" id="question" placeholder="Yí nu ɖɔ le gbɔ..." />
+  <button onclick="yí()">Wɛ yí</button><br><br>
+  <button onclick="window.location.href='index-lang.html'">Kpɛ ede</button>
+</body>
+<script>
+  async function yí() {
+    const input = document.getElementById("question");
+    const chatBox = document.getElementById("chat-box");
+    const message = input.value.trim();
+    if (!message) return;
+
+    chatBox.innerHTML += `<div class="message user">${message}</div>`;
+    input.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    try {
+      const res = await fetch("https://hook.make.com/TON-URL", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: message })
+      });
+      const data = await res.json();
+      const reply = data.result || "Mɛ gbɔ nɔ wɛ xɔ nu. Akpé nɔ wɛ yí 💜";
+      chatBox.innerHTML += `<div class="message ai">${reply}</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+    } catch {
+      chatBox.innerHTML += `<div class="message ai">Nu mɛ yɛ. Dzra gbã wɛ lẹ.</div>`;
+    }
+  }
+</script>
+</html>
