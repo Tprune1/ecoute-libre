@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ÉCOUTE LIBRE</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ÉCOUTE LIBRE – English Session</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div id="loader">Loading...</div>
-<style>
-#loader {
-  font-size: 1.2rem;
-  color: #6d5ba6;
-  animation: pulse 1s infinite;
-}
-@keyframes pulse {
-  0% {opacity: 0.4;}
-  50% {opacity: 1;}
-  100% {opacity: 0.4;}
-}
-</style>
-  <main>
-    <h1>Welcome to ÉCOUTE LIBRE</h1>
-    <p>A safe, anonymous, and accessible space to express yourself 24/7</p>
-    <button onclick="window.location.href='https://TON-LIEN-MVP.com'">Start a session</button>
-    <br><br>
-    <button onclick="window.location.href='https://TON-LIEN-FORMULAIRE.com'">Give feedback</button>
-  </main>
-  <script src="app.js"></script>
+  <h1>Welcome to your expression space</h1>
+  <p><em>Here, you can speak freely, with full confidentiality.</em></p>
+
+  <textarea rows="6" cols="40" placeholder="Write what you’re feeling here..."></textarea>
+  <br><br>
+  <button onclick="alert('Message received 💜 Thank you for sharing.')">Send</button>
+  <br><br>
+  <button onclick="window.location.href='index-lang.html'">Change Language</button>
 </body>
+<div style="text-align: center; margin-bottom: 20px;">
+  <img src="icions/logo.png" alt="ÉCOUTE LIBRE" width="100" />
+</div>
 </html>
