@@ -104,15 +104,15 @@
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
       if (loader) loader.style.display = "none";
-    });
 
-    const lang = navigator.language || navigator.userLanguage;
-    if (lang.startsWith("fr")) window.location.href = "index.html";
-    else if (lang.startsWith("en")) window.location.href = "index-en.html";
-    else if (lang.startsWith("yo")) window.location.href = "index-yo.html";
-    else if (lang.startsWith("mi")) window.location.href = "index-mi.html";
-    else if (lang.startsWith("go")) window.location.href = "index-go.html";
-    else if (lang.startsWith("fon")) window.location.href = "index-fo.html";
+      const lang = navigator.language || navigator.userLanguage;
+      if (lang.startsWith("fr")) window.location.href = "index-fr.html";
+      else if (lang.startsWith("en")) window.location.href = "index-en.html";
+      else if (lang.startsWith("yo")) window.location.href = "index-yo.html";
+      else if (lang.startsWith("mi")) window.location.href = "index-mi.html";
+      else if (lang.startsWith("go")) window.location.href = "index-go.html";
+      else if (lang.startsWith("fon")) window.location.href = "index-fo.html";
+    });
   </script>
 </head>
 
@@ -123,18 +123,18 @@
   <p><em>Un espace d’écoute libre, anonyme et accessible. Parce que parfois, parler suffit.</em></p>
 
   <div class="buttons">
-    <button onclick="window.location.href='index.html'">Commencer une session</button>
-    <button onclick="window.location.href='https://forms.gle/P9bt5sRujWxi3JWH6'">Donner mon avis</button>
+    <button onclick="window.location.href='index-fr.html'">Commencer ma session</button>
+    <button onclick="window.open('https://forms.gle/P9bt5sRujWxi3JWH6')">Donner mon avis</button>
   </div>
 
   <div class="note">
-    Vous pouvez choisir votre langue ci-dessous ou continuer en français.
+    Vous pouvez aussi choisir votre langue ci-dessous pour commencer dans l’environnement qui vous parle.
   </div>
 
   <div id="language-selector">
     <h2>Choisissez votre langue</h2>
     <div class="flags">
-      <a href="index.html"><img src="flags/fr.png" alt="Français" title="Français" /></a>
+      <a href="index-fr.html"><img src="flags/fr.png" alt="Français" title="Français" /></a>
       <a href="index-en.html"><img src="flags/en.png" alt="English" title="English" /></a>
       <a href="index-yo.html"><img src="flags/yo.png" alt="Yoruba" title="Yoruba" /></a>
       <a href="index-mi.html"><img src="flags/mi.png" alt="Mina" title="Mina" /></a>

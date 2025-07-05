@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÉCOUTE LIBRE – Session en Français</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  
+  <style>
+    body {
+      background-color: #fefefe;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #6d5ba6;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 25px;
+    }
+    #loader {
+      font-size: 1.2rem;
+      color: #6d5ba6;
+      animation: pulse 1s infinite;
+      margin-top: 40px;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .buttons button {
+      padding: 12px 24px;
+      margin: 10px;
+      background-color: #6d5ba6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .buttons button:hover {
+      background-color: #5b4b99;
+    }
+    .note {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: #666;
+      font-style: italic;
+    }
+  </style>
+
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      if (loader) loader.style.display = "none";
+    });
+  </script>
+</head>
+
+<body>
+  <div id="loader">Chargement...</div>
+
+  <h1>ÉCOUTE LIBRE</h1>
+  <p><em>Bienvenue dans cet espace confidentiel et apaisant.</em><br>
+  Ici, vous pouvez vous exprimer librement, sans jugement.</p>
+
+  <div class="buttons">
+    <button onclick="alert('Session commencée. Vous pouvez maintenant écrire ou vous exprimer.')">Commencer ma session</button>
+    <button onclick="window.open('https://forms.gle/P9bt5sRujWxi3JWH6')">Donner mon avis</button>
+    <button onclick="window.location.href='index.html'">Retour à l’accueil</button>
+  </div>
+
+  <div class="note">
+    Cette session est anonyme. Vous pouvez parler, écrire ou simplement lire. Votre voix compte 💬
+  </div>
+</body>
+</html>
